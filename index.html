@@ -21,11 +21,15 @@
 
   <!-- Navigation -->
   <header>
-    <nav>
-      <button onclick="scrollToSection('products')">Shoes</button>
-      <button onclick="scrollToSection('services')">Services</button>
-      <button onclick="showCart()">Cart  <span id="cart-count">0</span></button>
-    </nav>
+    <div class="nav-container">
+      <div class="logo">J‑Shop</div>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <nav id="nav-links">
+        <button onclick="scrollToSection('products')">Shoes</button>
+        <button onclick="scrollToSection('services')">Services</button>
+        <button onclick="showCart()">Cart  <span id="cart-count">0</span></button>
+      </nav>
+    </div>
   </header>
 
   <main>
@@ -104,6 +108,11 @@
 
   <!-- Back to Top -->
   <button id="backToTop" onclick="scrollToSection('hero')">⬆ Top</button>
+
+  <!-- Sticky mobile cart bar -->
+  <div id="mobile-cart-bar" onclick="showCart()">
+     View Cart — Total: <span id="mobile-cart-total">KES 0</span>
+  </div>
 
   <script src="script.js"></script>
 </body>

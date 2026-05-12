@@ -6,6 +6,12 @@ function scrollToSection(id) {
   if (section) section.scrollIntoView({ behavior: "smooth" });
 }
 
+// Hamburger menu toggle
+function toggleMenu() {
+  const nav = document.getElementById("nav-links");
+  nav.classList.toggle("show");
+}
+
 // Add shoe with size/color variants
 function addShoeToCart(button, name, price) {
   const card = button.closest(".card");
@@ -28,11 +34,12 @@ function showCart() { updateCart(); openCart(); }
 function openCart() { document.getElementById("cart-modal").style.display = "block"; }
 function closeCart() { document.getElementById("cart-modal").style.display = "none"; }
 
-// Update cart items and total
+// Update cart items and totals
 function updateCart() {
   const list = document.getElementById("cart-items");
   list.innerHTML = "";
   let total = 0;
+
   cart.forEach((item, index) => {
     const li = document.createElement("li");
     if (item.size && item.color) {
@@ -40,15 +47,28 @@ function updateCart() {
     } else {
       li.textContent = `${item.name} - KES ${item.price.toLocaleString()}`;
     }
+
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
     removeBtn.onclick = () => { cart.splice(index,1); updateCart(); };
     li.appendChild(removeBtn);
     list.appendChild(li);
+
     total += item.price;
   });
+
   document.getElementById("cart-total").textContent = `Total: KES ${total.toLocaleString()}`;
   document.getElementById("cart-count").textContent = cart.length;
+
+  // Update sticky mobile cart bar
+  const mobileBar = document.getElementById("mobile-cart-bar");
+  const mobileTotal = document.getElementById("mobile-cart-total");
+  if (cart.length > 0) {
+    mobileBar.style.display = "block";
+    mobileTotal.textContent = `KES ${total.toLocaleString()}`;
+  } else {
+    mobileBar.style.display = "none";
+  }
 }
 
 // Back to Top button visibility
