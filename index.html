@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>J‑Shop Demo</title>
+  <title>J‑Shop Shoes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,9 +11,9 @@
   <section class="hero" id="hero">
     <div class="hero-overlay">
       <h1>Welcome to J‑Shop</h1>
-      <p>Discover Product X packages and Service Y offerings</p>
+      <p>Premium Shoes & Services</p>
       <div class="hero-buttons">
-        <button onclick="scrollToSection('products')">Explore Products</button>
+        <button onclick="scrollToSection('products')">Explore Shoes</button>
         <button onclick="scrollToSection('services')">Explore Services</button>
       </div>
     </div>
@@ -21,53 +22,84 @@
   <!-- Navigation -->
   <header>
     <nav>
-      <button onclick="scrollToSection('products')">Products</button>
+      <button onclick="scrollToSection('products')">Shoes</button>
       <button onclick="scrollToSection('services')">Services</button>
-      <button onclick="showCart()">Cart 🛒 <span id="cart-count">0</span></button>
+      <button onclick="showCart()">Cart  <span id="cart-count">0</span></button>
     </nav>
   </header>
 
   <main>
     <!-- Products Section -->
     <section id="products">
-      <h2>Product X Packages</h2>
-      <div class="card" onclick="addToCart('Starter Pack',19.99)">
-        <h3>Starter Pack</h3>
-        <p>Basic support · 1 unit</p>
-        <p class="price">$19.99</p>
-      </div>
-      <div class="card" onclick="addToCart('Pro Pack',49.99)">
-        <h3>Pro Pack</h3>
-        <p>Priority support · 3 units · Warranty</p>
-        <p class="price">$49.99</p>
-      </div>
-      <div class="card" onclick="addToCart('Enterprise Pack',129.99)">
-        <h3>Enterprise Pack</h3>
-        <p>Dedicated support · 10 units · Onboarding</p>
-        <p class="price">$129.99</p>
+      <h2>Featured Shoes</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="image-container">
+            <img src="sneaker.jpg" alt="Classic Sneaker">
+          </div>
+          <h3>Classic Sneaker</h3>
+          <p>Comfortable everyday wear</p>
+          <p class="price">KES 4,500</p>
+          <label>Size:
+            <select class="size">
+              <option>38</option><option>39</option><option>40</option><option>41</option><option>42</option>
+            </select>
+          </label>
+          <label>Color:
+            <select class="color">
+              <option>Black</option><option>White</option><option>Red</option>
+            </select>
+          </label>
+          <button onclick="addShoeToCart(this, 'Classic Sneaker', 4500)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+          <div class="image-container">
+            <img src="running.jpg" alt="Running Shoe">
+          </div>
+          <h3>Running Shoe</h3>
+          <p>Lightweight performance</p>
+          <p class="price">KES 7,200</p>
+          <label>Size:
+            <select class="size">
+              <option>39</option><option>40</option><option>41</option><option>42</option><option>43</option>
+            </select>
+          </label>
+          <label>Color:
+            <select class="color">
+              <option>Blue</option><option>Grey</option><option>Green</option>
+            </select>
+          </label>
+          <button onclick="addShoeToCart(this, 'Running Shoe', 7200)">Add to Cart</button>
+        </div>
       </div>
     </section>
 
     <!-- Services Section -->
     <section id="services">
-      <h2>Service Y</h2>
-      <div class="card" onclick="addToCart('Consultation Service',150)">
-        <h3>Consultation Service</h3>
-        <p>Expert setup for Product X · 60 minutes</p>
-        <p class="price">$150</p>
+      <h2>Shoe Care Service</h2>
+      <div class="grid">
+        <div class="card" onclick="addToCart('Shoe Cleaning Service',1500)">
+          <h3>Shoe Cleaning</h3>
+          <p>Professional deep clean</p>
+          <p class="price">KES 1,500</p>
+        </div>
       </div>
-    </section>
-
-    <!-- Cart Section -->
-    <section id="cart">
-      <h2>Your Cart</h2>
-      <ul id="cart-items"></ul>
-      <p id="cart-total">Total: $0.00</p>
     </section>
   </main>
 
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeCart()">&times;</span>
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="cart-total">Total: KES 0</p>
+    </div>
+  </div>
+
   <footer>
-    <p>© 2026 J‑Shop Demo</p>
+    <p>© 2026 J‑Shop Shoes</p>
   </footer>
 
   <!-- Back to Top -->
