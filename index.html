@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>J‑Shop Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero Banner -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay">
+      <h1>Welcome to J‑Shop</h1>
+      <p>Discover Product X packages and Service Y offerings</p>
+      <div class="hero-buttons">
+        <button onclick="scrollToSection('products')">Explore Products</button>
+        <button onclick="scrollToSection('services')">Explore Services</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <button onclick="scrollToSection('products')">Products</button>
+      <button onclick="scrollToSection('services')">Services</button>
+      <button onclick="showCart()">Cart 🛒 <span id="cart-count">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Products Section -->
+    <section id="products">
+      <h2>Product X Packages</h2>
+      <div class="card" onclick="addToCart('Starter Pack',19.99)">
+        <h3>Starter Pack</h3>
+        <p>Basic support · 1 unit</p>
+        <p class="price">$19.99</p>
+      </div>
+      <div class="card" onclick="addToCart('Pro Pack',49.99)">
+        <h3>Pro Pack</h3>
+        <p>Priority support · 3 units · Warranty</p>
+        <p class="price">$49.99</p>
+      </div>
+      <div class="card" onclick="addToCart('Enterprise Pack',129.99)">
+        <h3>Enterprise Pack</h3>
+        <p>Dedicated support · 10 units · Onboarding</p>
+        <p class="price">$129.99</p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <h2>Service Y</h2>
+      <div class="card" onclick="addToCart('Consultation Service',150)">
+        <h3>Consultation Service</h3>
+        <p>Expert setup for Product X · 60 minutes</p>
+        <p class="price">$150</p>
+      </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="cart-total">Total: $0.00</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 J‑Shop Demo</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop" onclick="scrollToSection('hero')">⬆ Top</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

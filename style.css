@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #0b0b0d;
+  color: #fff;
+}
+
+/* Hero Banner */
+.hero {
+  position: relative;
+  height: 60vh;
+  background: url('hero.jpg') center/cover no-repeat; /* replace hero.jpg with your image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.hero-overlay {
+  background: rgba(0,0,0,0.6);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2dd4bf;
+}
+.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+.hero-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #2dd4bf;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.hero-buttons button:hover { background: #4fd1c5; }
+
+header {
+  background: #111;
+  padding: 1rem;
+  text-align: center;
+}
+nav button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #2dd4bf;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+nav button:hover { background: #4fd1c5; }
+
+section {
+  padding: 4rem 2rem;
+  scroll-margin-top: 80px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.card:hover { transform: scale(1.02); background: rgba(255,255,255,0.1); }
+.price { color: #2dd4bf; font-weight: bold; }
+
+footer {
+  background: #111;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Back to Top */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2dd4bf;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  display: none;
+}
+#backToTop.show { display: block; }
+
+/* Mobile-friendly */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+  .card { margin: 0.5rem 0; }
+}
